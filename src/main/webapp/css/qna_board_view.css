@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#articleForm {
+	width: 700px;
+	height: 500px;
+	border: 1px solid red;
+	margin: auto;
+}
+
+h2 {
+	text-align: center;
+}
+
+#basicInfoArea {
+	height: 40px;
+	text-align: center;
+}
+
+span{
+	margin-bottom: 20px;
+}
+
+#title{
+	display: block;
+	margin-bottom: 10px;
+}
+
+#file{
+	display: block;
+	margin-bottom: 20px;
+}
+
+#articleContentArea {
+	background: #ccc;
+	margin-top: 20px;
+	height: 350px;
+	text-align: center;
+	overflow: auto;
+	padding:9.4px;
+}
+
+#commandList {
+	margin: 20px auto;
+	width: 700px;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+}
