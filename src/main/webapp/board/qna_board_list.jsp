@@ -8,7 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MVC 게시판 글 목록</title>
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/qna_board_list.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/qna_board_list.css" >
 </head>
 <body>
 	<!-- 게시판 리스트 -->

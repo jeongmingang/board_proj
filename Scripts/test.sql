@@ -56,5 +56,9 @@ delete
 
 select * from board where BOARD_NUM = 22 and BOARD_PASS = '1234';
 
+-- 글 수정
+update board
+	set board_subject = '수업시작 시간입니다.', board_content = '9시에 시작'
+ where board_num = 30;
 
 

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-방가 
+게시판 보기
 <%=JndiDS.getConnection() %>
 <br>
 <a href="boardWriteForm.do">게시판글쓰기</a>

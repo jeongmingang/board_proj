@@ -22,7 +22,7 @@ public class CharacterEncodingFilter implements Filter {
 		System.out.println("init filter");
 		encoding = fConfig.getInitParameter("encoding");
 		if (encoding == null) {
-			encoding = "utf-8";
+			encoding = "UTF-8";
 		}
 	}
 	
@@ -32,7 +32,7 @@ public class CharacterEncodingFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		request.setCharacterEncoding(encoding);
 		response.setCharacterEncoding(encoding);
-//		response.setContentType("text/html;charset=UTF-8");
+//		response.setContentType("text/html; charset="+encoding);
 		chain.doFilter(request, response);
 	}
 
