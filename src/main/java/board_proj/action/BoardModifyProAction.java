@@ -17,6 +17,9 @@ public class BoardModifyProAction implements Action{
 		int board_num = Integer.parseInt(request.getParameter("BOARD_NUM"));	
 		String pass = request.getParameter("BOARD_PASS");
 		
+		String page = request.getParameter("page");
+		request.setAttribute("page", page);
+		
 		BoardModifyProServlce service = new BoardModifyProServlce();
 		
 		ActionForward forward = null;
@@ -46,7 +49,7 @@ public class BoardModifyProAction implements Action{
 		
 		forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("boardDetail.do?board_num=" + board_num);
+		forward.setPath("boardDetail.do?board_num=" + board_num + "&page=" + page);
 			
 		return forward;
 	}

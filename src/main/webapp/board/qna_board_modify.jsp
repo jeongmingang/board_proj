@@ -18,13 +18,14 @@
 	<h2>게시판글수정</h2>
 		<form action="boardModifyPro.do" method="post" name = "modifyform">
 		<input type = "hidden" name = "BOARD_NUM" value = "${article.board_num}" />
+		<input type = "hidden" name = "page" value = "${page}" />
 	<table>
 		<tr>
 			<td class="td_left">
 				<label for = "BOARD_NAME">글쓴이</label>
 			</td>
 			<td class="td_right">
-				<input type = "text" name="BOARD_NAME" id = "BOARD_NAME" value = "${article.board_name}"/>
+				<input type = "text" name="BOARD_NAME" id = "BOARD_NAME" value = "${article.board_name}" readonly/>
 			</td>
 		</tr>
 		<tr>
@@ -32,7 +33,7 @@
 				<label for = "BOARD_PASS">비밀번호</label>
 			</td>
 			<td class="td_right">
-				<input name="BOARD_PASS" type="password" id = "BOARD_PASS"/>
+				<input name="BOARD_PASS" type="password" id = "BOARD_PASS" autofocus/>
 			</td>
 		</tr>
 		<tr>

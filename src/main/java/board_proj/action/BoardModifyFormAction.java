@@ -12,10 +12,13 @@ public class BoardModifyFormAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
+		String page = request.getParameter("page");
 //		System.out.println("board_num >> " + board_num);
 		BoardModifyServlce service = new BoardModifyServlce();
 		
 		BoardDTO article = service.getArticle(board_num);
+		
+		request.setAttribute("page", page);
 		request.setAttribute("article", article);
 		
 		System.out.println("article >> " + article);
