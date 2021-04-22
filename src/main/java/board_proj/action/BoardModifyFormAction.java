@@ -10,9 +10,9 @@ import board_proj.service.BoardModifyServlce;
 public class BoardModifyFormAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
-		String page = request.getParameter("page");
+		int page = Integer.parseInt(request.getParameter("page"));
 //		System.out.println("board_num >> " + board_num);
 		BoardModifyServlce service = new BoardModifyServlce();
 		
@@ -25,6 +25,7 @@ public class BoardModifyFormAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("/board/qna_board_modify.jsp");
+		
 		return forward;
 	}
 

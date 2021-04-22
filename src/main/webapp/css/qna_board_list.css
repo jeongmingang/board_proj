@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 #listForm{
-	width: 700px;
-	height: 600px;
+	width: 900px;
+	height: 560px;
 	border: 1px solid #000000;
 	margin: auto;
 }
@@ -18,7 +18,7 @@ table{
 	border: 1px solid #ccc;
 	border-top: 2px solid red;
 	margin: auto;
-	width: 650px;
+	width: 850px;
 	border-collapse: collapse;
 }
 td{
@@ -47,15 +47,24 @@ table td:nth-child(5) {
 	width: 10%
 }
 #pageList{
-	width: 700px;
+	width: 900px;
 	text-align: center;
-	margin: auto;
+	margin-top: 20px;
+}
+
+#subject{
+	padding-left:15px;
+	text-align: left;
+	
+}
+
+#reply{
+	color: red;
 }
 
 a{
 	text-decoration: none;
 }
-
 
 
 

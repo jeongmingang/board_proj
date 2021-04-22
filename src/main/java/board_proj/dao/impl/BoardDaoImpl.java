@@ -118,17 +118,12 @@ public class BoardDaoImpl implements BoardDao{
 //			pstmt.setInt(10, article.getBoard_readcount());
 			
 			return pstmt.executeUpdate();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return 0;
 	}
 	
-	@Override
-	public int insertReplyArticle(BoardDTO article) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	@Override
 	public int updateArticle(BoardDTO article) {
 		String sql = "update board "
@@ -191,6 +186,66 @@ public class BoardDaoImpl implements BoardDao{
 			e.printStackTrace();
 		}		
 		return false;
+	}
+
+	@Override
+	public int insertReplyArticle(BoardDTO article) {
+		int next_board_Num = nextBoardNum();
+		
+		int re_ref = article.getBoard_re_ref();
+		int re_lev = article.getBoard_re_lev();
+		int re_seq = article.getBoard_re_seq();
+		
+		String sql1 = "update board "
+				 + 	 "	set BOARD_RE_SEQ = BOARD_RE_SEQ + 1 "
+				 + 	 " where BOARD_RE_REF = ? and BOARD_RE_SEQ > ?";
+		
+		String sql2 = "INSERT INTO board " 
+				   + " (BOARD_NUM, BOARD_NAME, BOARD_PASS, BOARD_SUBJECT, BOARD_CONTENT,"
+				   + "  BOARD_FILE, BOARD_RE_REF, BOARD_RE_LEV, BOARD_RE_SEQ) "
+				   + " VALUES (?, ?, ?, ?, ?, '', ?, ?, ?)";
+		try {
+			con.setAutoCommit(false);
+			try(PreparedStatement pstmt = con.prepareStatement(sql1)){
+				pstmt.setInt(1, re_ref);
+				pstmt.setInt(2, re_seq);	
+				System.out.println(pstmt);
+				pstmt.executeUpdate();
+		}
+			
+			re_seq += 1;
+			re_lev += 1;
+			
+			try(PreparedStatement pstmt = con.prepareStatement(sql2)){
+				pstmt.setInt(1, next_board_Num);
+				pstmt.setString(2, article.getBoard_name());
+				pstmt.setString(3, article.getBoard_pass());
+				pstmt.setString(4, article.getBoard_subject());
+				pstmt.setString(5, article.getBoard_content());
+				pstmt.setInt(6, re_ref);
+				pstmt.setInt(7, re_lev);
+				pstmt.setInt(8, re_seq);
+				System.out.println(pstmt);
+				pstmt.executeUpdate();
+			}
+			
+			con.commit();
+			return 1;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return 0;
 	}
 
 	@Override

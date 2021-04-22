@@ -19,8 +19,11 @@ public class BoardDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+	public BoardDTO(int board_num) {
+		this.board_num = board_num;
+	}
+
 	public BoardDTO(int board_num, String board_subject, String board_content) {
-		super();
 		this.board_num = board_num;
 		this.board_subject = board_subject;
 		this.board_content = board_content;
@@ -38,7 +41,6 @@ public class BoardDTO {
 	public BoardDTO(int board_num, String board_name, String board_pass, String board_subject, String board_content,
 			String board_file, int board_re_ref, int board_re_lev, int board_re_seq, int board_readcount,
 			Date board_date) {
-		super();
 		this.board_num = board_num;
 		this.board_name = board_name;
 		this.board_pass = board_pass;

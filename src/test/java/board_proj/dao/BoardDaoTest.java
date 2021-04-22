@@ -1,7 +1,5 @@
 package board_proj.dao;
 
-import static org.junit.Assert.fail;
-
 import java.sql.Connection;
 import java.util.List;
 
@@ -90,8 +88,14 @@ public class BoardDaoTest {
 	}
 
 	@Test
-	public void testInsertReplyArticle() {
-		fail("Not yet implemented");
+	public void test10InsertReplyArticle() {
+		System.out.println("test10InsertReplyArticle");
+		BoardDTO replyArticle = new BoardDTO("유한솔", "1111", "앙데4", "절대루4", "");
+		replyArticle.setBoard_re_ref(20);
+		
+		int res = dao.insertReplyArticle(replyArticle);
+		Assert.assertEquals(1, res);
+		System.out.printf("res >> " + res);
 	}
 
 	@Test

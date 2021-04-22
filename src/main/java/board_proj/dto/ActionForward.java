@@ -9,7 +9,6 @@ public class ActionForward {
 	}
 
 	public ActionForward(String path, boolean redirect) {
-		super();
 		this.path = path;
 		this.redirect = redirect;
 	}

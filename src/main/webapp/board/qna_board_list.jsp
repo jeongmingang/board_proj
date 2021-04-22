@@ -28,8 +28,19 @@
 				 <c:forEach var="list" items="${articleList }">
 				 	<tr>
 					 	<td>${list.board_num } </td>
-					 	<td>
-					 	<a href="boardDetail.do?board_num=${list.board_num }&page=${pageInfo.page}" >${list.board_subject} </a>
+					 	<td id="subject"> 
+				 			<c:if test="${list.board_re_lev ne 0 }">
+				 				<c:forEach var="i" begin="1" end="${list.board_re_lev}">
+							 		&nbsp;
+							 	</c:forEach>
+							 	▶ <span id="reply">
+							 		<b>! <small>답변 :</small></b>
+							 	</span>
+							 </c:if>
+				 				<a href="boardDetail.do?board_num=${list.board_num }&page=${pageInfo.page}" >${list.board_subject} </a>	
+				 				<c:if test="${list.board_re_lev ne 0 }">
+				 					 ◀
+				 				</c:if>				 			
 					 	</td>
 					 	<td>${list.board_name} </td>
 					 	<td>${list.board_date } </td>
@@ -43,7 +54,7 @@
 			 </c:choose>
 		</table>
 		
-		${pageInfo}
+		<%-- ${pageInfo} --%>
 		
 		<section id="pageList">
 			<c:choose>

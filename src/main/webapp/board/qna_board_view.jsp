@@ -16,8 +16,8 @@
 			<span id="title">제 목 : ${article.board_subject}</span>
 			<span id="file">
 				첨부파일 :
-				<c:if test="${article.board_file ne null}">
-					<a href="file_down.do?downFile=${article.board_file ne null}"> ${article.board_file}	</a>
+				<c:if test="${article.board_file != null}">
+					<a href="file_down.do?downFile=${article.board_file}"> ${article.board_file} </a>
 				</c:if>
 			</span>
 		</article>

@@ -4,7 +4,7 @@ select max(BOARD_NUM) from board;
 
 INSERT INTO web_gradle_erp.board
 (BOARD_NUM, BOARD_NAME, BOARD_PASS, BOARD_SUBJECT, BOARD_CONTENT, BOARD_FILE, BOARD_RE_REF, BOARD_RE_LEV, BOARD_RE_SEQ, BOARD_READCOUNT, BOARD_DATE)
-VALUES(1, '김상건', '1111', '마칠시간', '5시', 'test.txt', 0, 0, 0, 0, '2021-03-03');
+VALUES(26, '김상건', '1111', '마칠시간', '5시', 'test.txt', 26, 0, 0, 0, '2021-03-03');
 
 select * from board;
 
@@ -60,5 +60,23 @@ select * from board where BOARD_NUM = 22 and BOARD_PASS = '1234';
 update board
 	set board_subject = '수업시작 시간입니다.', board_content = '9시에 시작'
  where board_num = 30;
+
+-- 글에 대한 답변 달기
+select * from board where BOARD_RE_REF = 20;
+
+update board
+	set BOARD_RE_SEQ = BOARD_RE_SEQ + 1
+ where BOARD_RE_REF = 30 and BOARD_RE_SEQ > 0;
+
+INSERT INTO board 
+ (BOARD_NUM, BOARD_NAME, BOARD_PASS, BOARD_SUBJECT, BOARD_CONTENT, 
+  BOARD_FILE, BOARD_RE_REF, BOARD_RE_LEV, BOARD_RE_SEQ) 
+ VALUES (26, '김상건?111', '1111', '6시', 'ggggg', '', 23, 1, 1);
+
+
+
+
+
+
 
 
